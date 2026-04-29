@@ -4,12 +4,6 @@
 
 # compendium
 
-<figure>
-<a href="https://mybinder.org/v2/gh///master?urlpath=rstudio"><img
-src="https://mybinder.org/badge_logo.svg" alt="Binder" /></a>
-<figcaption>Binder</figcaption>
-</figure>
-
 This repository contains the data and code for our paper:
 
 > Authors, (YYYY). *Title of your paper goes here*. Name of journal/book
@@ -18,15 +12,15 @@ This repository contains the data and code for our paper:
 Our pre-print is online here:
 
 > Authors, (YYYY). *Title of your paper goes here*. Name of
-> journal/book, Accessed 05 Jun 2025. Online at
+> journal/book, Accessed 29 Apr 2026. Online at
 > <https://doi.org/xxx/xxx>
 
 ### How to cite
 
 Please cite this compendium as:
 
-> Authors, (2025). *Compendium of R code and data for Title of your
-> paper goes here*. Accessed 05 Jun 2025. Online at
+> Authors, (2026). *Compendium of R code and data for Title of your
+> paper goes here*. Accessed 29 Apr 2026. Online at
 > <https://doi.org/xxx/xxx>
 
 ## Contents
@@ -55,22 +49,24 @@ software](https://cloud.r-project.org/) itself and optionally [RStudio
 Desktop](https://rstudio.com/products/rstudio/download/).
 
 You can download the compendium as a zip from from this URL:
-[master.zip](./archive/master.zip). After unzipping: - open the `.Rproj`
-file in RStudio - run `devtools::install()` to ensure you have the
-packages this analysis depends on (also listed in the
-[DESCRIPTION](./DESCRIPTION) file). - finally, open
-`analysis/paper/paper.Rmd` and knit to produce the `paper.docx`, or run
-`rmarkdown::render("analysis/paper/paper.qmd")` in the R console
+[master.zip](./archive/master.zip). After unzipping:
+
+-   open the `.Rproj` file in RStudio
+-   run `devtools::install()` to ensure you have the packages this
+    analysis depends on (also listed in the [DESCRIPTION](./DESCRIPTION)
+    file).
+-   finally, open `analysis/paper/paper.Rmd` and knit to produce the
+    `paper.docx`, or run `rmarkdown::render("analysis/paper/paper.qmd")`
+    in the R console
 
 ### Licenses
 
 **Text and figures :**
 [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
 
-**Code :** See the [DESCRIPTION](DESCRIPTION) file
+**Code:** [AGPL‑3.0](https://www.gnu.org/licenses/agpl-3.0.html)
 
-**Data :** [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
-attribution requested in reuse
+**Data:** [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
 
 ### Contributions
 

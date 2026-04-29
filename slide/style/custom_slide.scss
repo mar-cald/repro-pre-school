@@ -1,0 +1,83 @@
+/*-- scss:defaults --*/
+
+$root-font-size: 33px;
+$h2-font-size: 55px;
+$refs-font-size: 0.8em!default;
+
+/* Exact brand colors extracted from your screenshots */
+$brand-cyan: #5caebb; /* From the "Meta-Analysis" title and schedule times */
+$brand-pink: #ff7eb6; /* From the tags and sidebar */
+$brand-slate: #222b32; /* From the website's dark background */
+
+$body-bg: #f9fafb;
+$body-color: $brand-slate;
+
+
+$link-color: $brand-pink;
+
+$presentation-font-size-root: 33px;
+$presentation-h1-font-size: 80px!important;
+$presentation-h2-font-size: $h2-font-size!important;
+$code-block-font-size: 0.7em;
+
+/*-- scss:rules --*/
+
+.reveal blockquote {
+    font-size: $root-font-size;
+    border-left: 4px solid $brand-cyan; 
+    padding-left: 15px;
+}
+
+summary {
+    font-size: 60%;
+    color: $brand-pink;
+}
+
+[id^="reference"] h2 {
+  font-size: $h2-font-size !important;
+}
+
+.csl-entry {
+    font-size: $refs-font-size;
+}
+
+
+/* 1. Table Styling (Matches your clean "Schedule" layout) */
+.reveal table {
+  border-collapse: collapse;
+  width: 100%;
+  
+  th {
+    border-bottom: 2px solid #d1d5db;
+    font-weight: bold;
+  }
+  
+  td {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 16px 8px;
+  }
+  
+  /* Makes the first column (like your 'Time' column) cyan */
+  tbody tr td:first-child {
+    color: $brand-cyan;
+  }
+}
+
+/* 2. Callout Blocks (Matches the minimal left-border note screenshot) */
+.reveal .callout.callout-style-minimal {
+  border-left: 5px solid $brand-cyan !important;
+}
+
+/* 3. Dark Section Slides (Uses your website's exact slate color) */
+.reveal.has-dark-background {
+  background-color: $brand-slate !important;
+  
+  h1, h2, h3, h4, h5, h6, p, li, blockquote, td, th {
+    color: #ffffff !important;
+  }
+  
+  table th, table td {
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+  }
+}
+

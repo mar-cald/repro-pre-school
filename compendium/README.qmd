@@ -16,8 +16,6 @@ Title <- "Title of your paper goes here"
 
 # compendium
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh///master?urlpath=rstudio)
-
 This repository contains the data and code for our paper:
 
 > Authors, (YYYY). _`r Title`_. Name of journal/book <https://doi.org/xxx/xxx>
@@ -59,6 +57,7 @@ itself and optionally [RStudio Desktop](https://rstudio.com/products/rstudio/dow
 
 You can download the compendium as a zip from from this URL:
 [master.zip](/archive/master.zip). After unzipping:
+
 - open the `.Rproj` file in RStudio
 - run `devtools::install()` to ensure you have the packages this analysis depends on (also listed in the
 [DESCRIPTION](/DESCRIPTION) file).
@@ -68,9 +67,9 @@ You can download the compendium as a zip from from this URL:
 
 **Text and figures :**  [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
 
-**Code :** See the [DESCRIPTION](DESCRIPTION) file
+**Code:** [AGPL‑3.0](https://www.gnu.org/licenses/agpl-3.0.html)
 
-**Data :** [CC-0](http://creativecommons.org/publicdomain/zero/1.0/) attribution requested in reuse
+**Data:** [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
 
 ### Contributions
 
