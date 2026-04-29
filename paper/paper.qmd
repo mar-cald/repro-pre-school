@@ -27,12 +27,14 @@ author-note:
     gratitude: ~
     authorship-agreements: ~
 abstract: "This document is a template."
+impact-statement: "This template helps you get started."
 keywords: [Keyword 1, Keyword 2, Keyword 3]
 bibliography: bibliography.bib
 format:
   apaquarto-docx: default
   apaquarto-html: default
-  apaquarto-typst: default
+  apaquarto-typst: 
+    keep-typ: true
   apaquarto-pdf:
     documentmode: man
 ---
@@ -40,6 +42,10 @@ format:
 <!-- The introduction should not have a level-1 heading such as Introduction. -->
 
 This is my first paragraph. Any section headings in the introduction should be in levels 2--5.
+
+## Section in Introduction
+
+This is a reference [@cohen2003applied].
 
 # Method
 

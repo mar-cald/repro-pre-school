@@ -1,5 +1,5 @@
 ---
-title: "Using Quarto to Generate Documents in APA Style (7th Edition)"
+title: "Write APA Style Documents Using Quarto"
 # If blank, the running header is the title in upper case.
 shorttitle: "Template for the apaquarto Extension"
 # Set names and affiliations.
@@ -13,7 +13,7 @@ author:
     url: https://example.org/
     # Roles are optional. 
     # Select from the CRediT: Contributor Roles Taxonomy https://credit.niso.org/
-    # conceptualization, data curation, formal Analysis, funding acquisition, investigation, 
+    # conceptualization, data curation, formal analysis, funding acquisition, investigation, 
     # methodology, project administration, resources, software, supervision, validation, 
     # visualization, writing, editing
     roles:
@@ -82,16 +82,23 @@ author-note:
     gratitude: ~
     # Example. Because the authors are equal contributors, order of authorship was determined by a fair coin toss.
     authorship-agreements: ~
-abstract: "This document is a template demonstrating the apaquarto format."
-# Put as many keywords at you like, separated by commmas (e.g., [reliability, validity, generalizability])
-keywords: [keyword1, keyword2, keyword3]
-# If true, tables and figures are mingled with the text instead of listed at the end of the document.
-impact-statement: ~
+abstract: "This document is a template demonstrating the apaquarto format. The template demonstrates the use of in-text citations, possessive citations, masked citations, meta-analytpic citations, block quotes, equations, figures, and tables. Creating appendices is demonstrated."
+# Put as many keywords at you like
+keywords: 
+  - APA Style
+  - Quarto
+  - Markdown
+  - apaquarto
+# Optional statement about the importance of the paper. The heading can be customized in the language field.
+impact-statement: "The apaquarto template allow writers to apply APA style consistently with minimal fuss and bother."
 # If true, a word count will appear below the keywords (tables, figure captions, and references excluded in count.)
 word-count: false
+# If true, tables and figures are mingled with the text instead of listed at the end of the document.
 floatsintext: true
 # Numbered lines (.pdf and .docx only)
 numbered-lines: false
+# Set first page number of body
+first-page: 9
 # File with references
 bibliography: bibliography.bib
 # Suppress title page
@@ -103,12 +110,17 @@ mask: false
 masked-citations:
   - schneider2012cattell
   - schneider2015intelligence
+# If true, nocite references are prefixed with asterisks
+meta-analysis: true
+nocite: |
+  @bentley1929instructions, @cohen2003applied
 # If true, adds today's date below author affiliations. If text, can be any value.
 # This is not standard APA format, but it is convenient.
 # Works with docx, html, and typst. 
 draft-date: false
 # Language options. See https://quarto.org/docs/authoring/language.html
 lang: en
+# Additional language options
 language:
   citation-last-author-separator: "and"
   citation-masked-author: "Masked Citation"
@@ -120,17 +132,14 @@ language:
   title-block-role-introduction: "Author roles were classified using the Contributor Role Taxonomy (CRediT; [credit.niso.org](https://credit.niso.org)) as follows:"
   title-impact-statement: "Impact Statement"
   references-meta-analysis: "References marked with an asterisk indicate studies included in the meta-analysis."
+# Keep `false` to remain consistent with APA style. If `true`, replaces ampersands with `and` or word specified in `citation-last-author-separator` in parenthetical citations. 
+no-ampersand-parenthetical: false
+fontsize: 12pt
 format:
-  apaquarto-docx: 
-    toc: false
   apaquarto-html: 
     toc: true
-  apaquarto-typst: 
-    keep-typ: true
-    list-of-figures: false
-    list-of-tables: false
+  apaquarto-docx: 
     toc: false
-    papersize: "us-letter"
   apaquarto-pdf:
     # Can be jou (journal), man (manuscript), stu (student), or doc (document)
     documentmode: man
@@ -144,35 +153,47 @@ library(conflicted)
 library(tidyverse)
 library(flextable)
 library(ftExtra)
+library(apa7)
 library(knitr)
 library(tinytable)
 conflicts_prefer(dplyr::filter, .quiet = TRUE)
 conflicts_prefer(flextable::separate_header, .quiet = TRUE)
-
+conflicts_prefer(ggplot2::theme_void, .quiet = TRUE)
+set_flextable_defaults(theme_fun = theme_apa, 
+                       font.family = "Times New Roman", 
+                       text.align = "center", 
+                       table_align = "left")
 ```
 
 This is my introductory paragraph. The title will be placed above it automatically. *Do not start with an introductory heading* (e.g., "Introduction"). The title acts as your Level 1 heading for the introduction.
 
 Details about writing headings with markdown in APA style are [here](https://wjschne.github.io/apaquarto/writing.html#headings-in-apa-style). In general, level 1 headings should be reserved for the Method, Results, Discussion, References, and Appendices sections. 
 
+## YAML metadata
 
-
+At the top of the apaquarto document, there is a lot of metadata (e.g., title, authors, affiliations, abstract, and so forth) written in YAML. Although the various options apaquarto are all documented, keeping track of them all can be difficult. Generating the initial YAML metadata can be easier if one begins with the the [apa7maker](https://wjschne.github.io/apa7maker/) web app.
 
 ## Citations
 
-See [here](https://quarto.org/docs/authoring/footnotes-and-citations.html) for instructions on setting up citations and references.
+See [here](https://quarto.org/docs/authoring/footnotes-and-citations.html) for instructions on setting up citations and references. A parenthetical citation requires square brackets [@CameronTrivedi2013]. This reference was in my bibliography file. An in-text citation is done like so:
 
-A parenthetical citation requires square brackets [@CameronTrivedi2013]. This reference was in my bibliography file. An in-text citation is done like so:
+@CameronTrivedi2013 make some important points.
 
-@CameronTrivedi2013 make some important points ...
+See [here](https://wjschne.github.io/apaquarto/writing.html#citations) for explanations, examples, and citation features exclusive to apaquarto. For example, apaquarto can automatically handle possessive citations:
 
-See [here](https://wjschne.github.io/apaquarto/writing.html#references) for explanations, examples, and citation features exclusive to apaquarto. For example, apaquarto can automatically handle possessive citations:
+@CameronTrivedi2013 ['s] position differed from @brownHowKilledPluto2012 ['s, 1-2] take on the matter.
 
-@schneider2012cattell ['s] position was ...
-
-## Masking Author Identity for Peer Review
+### Masking Author Identity for Peer Review
 
 Setting `mask` to `true` will remove author names, affiliations, and correspondence from the title page. Any references listed in the `masked-citations` field will be masked as well. See [here](https://wjschne.github.io/apaquarto/writing.html#masked-citations-for-anonymous-peer-review) for more information.
+
+Here is a masked citation [@schneider2012cattell].
+
+### Meta-analytic citations
+
+By default, any references in the `nocite` field in your YAML heading will be assumed to be meta-analytic references that will appear in the reference section with an asterisk. If you want to use `nocite` but do not want references prefixed with asterisks, then set the  `meta-analysis` field to `false`. 
+
+It is possible to cite meta-analytic references in text. For example, @cohen2003applied is listed in the `nocite` field.
 
 ## Block Quotes
 
@@ -229,19 +250,25 @@ To refer to any figure or table, use the `@` symbol followed by the reference la
 
 ## Displaying Tables
 
-We can make a table the same way as a figure. Generating a table that conforms to APA format in all document formats can be tricky. When the table is simple, the `kable` function from knitr works well. Feel free to experiment with different methods, but I have found that David Gohel's [flextable](https://davidgohel.github.io/flextable/) to be the best option when I need something more complex.
+We can make a table the same way as a figure. Generating a table that conforms to APA format in all document formats can be tricky. When the table is simple, the `kable` function from knitr works well. Feel free to experiment with different methods, but my [apa7 package](https://wjschne.github.io/apa7/articles/apa7.html) adapts David Gohel's [flextable](https://davidgohel.github.io/flextable/) package to make a wide variety of APA-styled tables. In [this blog series](https://wjschne.github.io/posts/apatables/apa701.html), I used apa7 to  recreate the 24 example tables from chapter 7 of the *APA Publication Manual*.
 
 
 ```{r}
 #| label: tbl-mytable
 #| tbl-cap: The Table Caption. 
-#| apa-note: The note below the table.
-tibble(Numbers = seq(1,4), Letters = LETTERS[seq(Numbers)]) %>%
-  knitr::kable()
+#| echo: false
+#| apa-twocolumn: true
+#| apa-note: 
+#|   - This is the first paragraph.
+#|   - This is a second paragraph. 
+
+lm(price ~ carat + depth + table, data = ggplot2::diamonds) |>  
+  apa_parameters() |> 
+  apa_flextable()
 
 ```
 
-To refer to this table in text, use the `@` symbol followed by the reference label like so: As seen in @tbl-mytable, the first few numbers and letters of the alphabet are displayed.
+To refer to this table in text, use the `@` symbol followed by the reference label like so: As seen in @tbl-mytable, the price of a diamond is related to several features of the diamond.
 
 
 
@@ -250,8 +277,6 @@ To refer to this table in text, use the `@` symbol followed by the reference lab
 When creating tables and figures in journal mode, care must be taken not to make figures and tables wider than the columns, otherwise $\LaTeX$ sometimes makes them disappear.
 
 As demonstrated in @fig-twocolumn, you can make figures tables span the two columns by setting the `apa-twocolumn` chunk option to `true`.
-
-
 
 ```{r}
 #| label: fig-twocolumn
@@ -271,16 +296,6 @@ ggplot(data.frame(x = c(-4, 4)), aes(x)) +
   theme_void()
 ```
 
-
-```{r}
-# remotes::install_github("wjschne/apa7")
-library(apa7)
-x <- mtcars[, c("vs", "am")] %>% 
-  apa_chisq(border_color = "black")
-```
-
-
-
 ## Using Footnotes
 
 A footnote is usually displayed at the bottom of the page on which the footnote occurs.  A short note can be specified with the `^[My note here]` syntax.^[Here is my short footnote!] A longer note can be specified with the `[^id]` syntax with the text specified on a separate line like so `[^id]: Text here`.[^mylongfootnote]
@@ -297,9 +312,7 @@ The last paragraph of the introduction usually states the specific hypotheses of
 
 # Method
 
-General remarks on method. This paragraph is optional.
-
-Not all papers require each of these sections. Edit them as needed. Consult the [Journal Article Reporting Standards](https://apastyle.apa.org/jars) for what is needed for your type of article.
+General remarks on method. This paragraph is optional. Not all papers require each of these sections. Edit them as needed. Consult the [Journal Article Reporting Standards](https://apastyle.apa.org/jars) for what is needed for your type of article.
 
 ## Participants
 
@@ -355,6 +368,8 @@ Describe the basic characteristics of the primary variables. My ideal is to desc
 
 : My Caption. {#tbl-mymarkdowntable2 apa-note="My note"}
 
+
+
 # Discussion
 
 Describe results in non-statistical terms. <!-- Add sections as needed. -->
@@ -376,34 +391,39 @@ Describe the main point of the paper.
 :::
 
 
-# My Appendix Title {#apx-a}
+# My Appendix {#apx-a}
 
-Appendices are created as level 1 headings with an identifier with an  `#apx-` prefix. Appendix titles should be in title case and should describe the content of the appendix.
+Any level 1 heading after the reference section (if it exists) is an appendix. If you do not specify a reference section, you will need to give the level-1 heading an identifier with an `#apx-` prefix. For example,
 
-If there is only one appendix, the label automatically inserted above the the appendix title will be **Appendix**. If there are multiple appendices, the labels **Appendix A**, **Appendix B**, **Appendix C** and so forth will be inserted above the titles.
+`# My Appendix {#apx-a}`
+
+Appendices are created as level 1 headings with an  `#apx-` prefix in the identifier. Appendix titles should be in title case and should describe the content of the appendix.
+
+If there is only one appendix, the label inserted above the the appendix title will be **Appendix**. If there are multiple appendices, the labels **Appendix A**, **Appendix B**, **Appendix C** and so forth will be inserted above the titles.
 
 To cite an appendix as a whole, reference it with the `@apx-` prefix. For example, see @apx-a and @apx-b.
 
-This is an appendix with a table using markdown (see @tbl-letters).
+@apx-a is an appendix with a contingency table (see @tbl-chisq).
 
-
-| Col 1 | Col 2 | Col 3 |
-|-------|-------|-------|
-| A     | B     | C     |
-| E     | F     | G     |
-| A     | G     | G     |
-
-: My Caption {#tbl-letters apa-note="These are letters."}
-
-
+```{r}
+#| label: tbl-chisq
+#| tbl-cap: Contingency table
+#| apa-twocolumn: true
+mtcars |>
+  select(Transmission = am, Gears = gear) |>
+  mutate(Gears = factor(Gears),
+         Transmission = factor(Transmission, 
+                               labels = c("Automatic", "Manual"))) |>
+  apa_chisq()
+```
 
 
 # Another Appendix {#apx-b}
 
+![Appendix Figure](sampleimage.png){#fig-appendfig apa-note="A *note* below the figure"}
 
 See @fig-appendfig, an example of an imported graphic using markdown syntax. 
 
 
 
-![Appendix Figure](sampleimage.png){#fig-appendfig apa-note="A *note* below the figure"}
 
