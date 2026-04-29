@@ -1548,9 +1548,9 @@ You don't have to use the terminal, RStudio has a built-in Git panel, you can:
 ::: incremental
 -   **Clone** a repo: `File → New Project → Version Control`
 
--   **Stage, commit, push, pull**: use the **Git** tab
+-   **Stage, commit, push, pull, browse history**: use the **Git** tab
 
--   **Browse history**: click **History** in the Git tab
+    ![](images/gitpane.png){width="398"}
 
 -   **New project with Git**: tick *"Create a git repository"* at setup ![](images/proj-git.png){width="28%"}
 :::
