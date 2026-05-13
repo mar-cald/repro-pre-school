@@ -315,7 +315,7 @@ Margherita Calderan
 <section id="keys-to-reproducible-science" class="slide level2">
 <h2>Keys to reproducible science</h2>
 <ul>
-<li><strong>Data</strong>: organize, document, and share your datasets in ways that are usable by others and understandable by you (even years later).</li>
+<li><strong>Data</strong>: organize, document, and share your datasets.</li>
 <li><strong>Code</strong>: write analysis scripts that are clean, transparent, and reusable.</li>
 <li><strong>Literate programming</strong>: combine code and text in the same document, so your reports are dynamic and replicable.</li>
 <li><strong>Version Control and Sharing</strong>: track changes, collaborate, and make your work openly available using tools like GitHub and OSF (and/or Zenodo).</li>
@@ -333,23 +333,17 @@ Margherita Calderan
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="so-is-reproducible-science-even-harder" class="slide level2">
-<h2>So… Is reproducible science even harder?</h2>
-
-<img data-src="repro-preschool_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="3000"><aside class="notes">
-<p>Learning takes effort. It can feel slow and confusing. But once you’ve learned these tools, your workflow becomes smoother.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="repro-preschool_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" width="3000"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="outline" class="slide level2" data-background-color="#222b32">
 <h2>Outline</h2>
@@ -1094,9 +1088,13 @@ Margherita Calderan
 12 l4   37 MSc</code></pre>
 </div>
 </div>
-<blockquote>
+<div class="callout callout-warning no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
 <p>STAI-T consists of 20 items, 4-points likert scale</p>
-</blockquote>
+</div>
+</div>
+</div>
 </section>
 <section id="datadictionary" class="slide level2">
 <h2><code>datadictionary</code></h2>
@@ -1784,9 +1782,13 @@ Margherita Calderan
 <li><p>Click through everything again</p></li>
 <li><p>Forget a step? Round differently?</p></li>
 </ul>
-<blockquote>
+<div class="callout callout-warning no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
 <p>Stressful, error-prone, and undocumented.</p>
-</blockquote>
+</div>
+</div>
+</div>
 </section>
 <section id="why-scripting" class="slide level2">
 <h2>Why scripting?</h2>
@@ -1805,9 +1807,13 @@ Margherita Calderan
 <span id="cb5-11"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> condition, <span class="at">y =</span> score)) <span class="sc">+</span></span>
 <span id="cb5-12"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<blockquote>
+<div class="callout callout-warning no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
 <p>One line change, rerun, and everything updates.</p>
-</blockquote>
+</div>
+</div>
+</div>
 <aside class="notes">
 <p>You go into your code, change one line: filter(age &gt;= 18), and rerun everything. The tables update, the figures update, the results update, and you’re done. No mistakes, no stress, and your analysis is documented.</p>
 <style type="text/css">
@@ -1965,6 +1971,9 @@ Mazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
 Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1</code></pre>
 </div>
+</div>
+<div class="fragment">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">str</span>(mtcars) <span class="co"># show structure</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   32 obs. of  11 variables:
@@ -1979,6 +1988,7 @@ Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1</code></pre>
  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</code></pre>
+</div>
 </div>
 </div>
 </section>
@@ -2225,8 +2235,8 @@ drat   3.596563   3.695  2.76   4.93</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
          expr      min       lq     mean   median       uq      max neval
- grow_in_loop 1372.803 1372.803 1372.803 1372.803 1372.803 1372.803     1
- preallocated  943.697  943.697  943.697  943.697  943.697  943.697     1</code></pre>
+ grow_in_loop 1434.016 1434.016 1434.016 1434.016 1434.016 1434.016     1
+ preallocated  962.721  962.721  962.721  962.721  962.721  962.721     1</code></pre>
 </div>
 </div>
 </section>
@@ -2260,7 +2270,7 @@ carb   2.812500   1.6152000  1.000   8.000   2.000</code></pre>
 </section>
 <section id="test-your-functions---fuzzr" class="slide level2">
 <h2>Test your functions - <code>fuzzr</code> <span class="emoji" data-emoji="package">📦</span></h2>
-<p>When you write your own functions, it’s smart to test them. In R, we can use <code>fuzzr</code> to do <strong>property-based testing</strong>.</p>
+<p>When you write your own functions, you must test them. In R, we can use <code>fuzzr</code> to do <strong>property-based testing</strong>.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Define your function…</p>
@@ -2542,15 +2552,6 @@ project/
 </figure>
 </div>
 </div></div>
-</section>
-<section id="research-compendium-rrtools" class="slide level2">
-<h2>Research compendium <code>rrtools</code> <span class="emoji" data-emoji="package">📦</span></h2>
-<p><br></p>
-<ul>
-<li>Organize its files according to the prevailing conventions.</li>
-<li>Maintain a clear separation of data (original data is untouched!), method, and output.</li>
-<li>Specify the computational environment that was used for the original analysis</li>
-</ul>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
@@ -3039,7 +3040,7 @@ New files are <strong>untracked</strong> until you run <code>git add</code>.</p>
 </section>
 <section id="branching-merging" class="slide level2">
 <h2>Branching &amp; merging <span class="emoji" data-emoji="seedling">🌱</span></h2>
-<p>By default, you work on the <strong><code>main</code></strong> branch. A new branch is an <strong>independent copy</strong> of your project where you can experiment safely — without touching the working version.</p>
+<p>By default, you work on the <strong><code>main</code></strong> branch. A new branch is an <strong>independent copy</strong> of your project where you can experiment safely/without touching the working version.</p>
 <ul>
 <li>Try out new features without breaking <code>main</code></li>
 <li>Fix bugs in isolation</li>
@@ -3119,9 +3120,6 @@ New files are <strong>untracked</strong> until you run <code>git add</code>.</p>
 <li>Try GitHub Desktop (GUI client)</li>
 </ul>
 <p><br></p>
-<blockquote>
-<p>Start small. Use Git for one script. Then grow your skills from there.</p>
-</blockquote>
 <aside class="notes">
 <p>I won’t lie: Git can be confusing at first. The terminology (commits, branches, merges, remotes) can feel overwhelming. But you don’t have to learn everything at once. Start simple: Use RStudio’s Git pane to commit and push; Learn how to clone, pull, and push Then explore branches and pull requests</p>
 <style type="text/css">
@@ -3147,9 +3145,13 @@ New files are <strong>untracked</strong> until you run <code>git add</code>.</p>
 <li>Generate DOIs for citation</li>
 <li>Track changes</li>
 </ul>
-<blockquote>
+<div class="callout callout-warning no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
 <p>You can also connect OSF to GitHub.</p>
-</blockquote>
+</div>
+</div>
+</div>
 </section>
 <section id="integrated-workflow" class="slide level2">
 <h2>Integrated workflow <span class="emoji" data-emoji="hammer_and_wrench">🛠️</span></h2>

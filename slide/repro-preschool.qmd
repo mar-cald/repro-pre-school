@@ -118,7 +118,7 @@ I want to suggest that reproducibility is not an extra task. It’s not a burden
 ## Keys to reproducible science
 
 ::: nonincremental
--   **Data**: organize, document, and share your datasets in ways that are usable by others and understandable by you (even years later).
+-   **Data**: organize, document, and share your datasets.
 -   **Code**: write analysis scripts that are clean, transparent, and reusable.
 -   **Literate programming**: combine code and text in the same document, so your reports are dynamic and replicable.
 -   **Version Control and Sharing**: track changes, collaborate, and make your work openly available using tools like GitHub and OSF (and/or Zenodo).
@@ -128,9 +128,9 @@ I want to suggest that reproducibility is not an extra task. It’s not a burden
 We need to organize, document, and share our data so it’s clear to others. Our analysis code should be clean, transparent, and reusable. By combining code and text in the same document, we make our work dynamic and understandable. And with version control tools like Git, we can track changes, collaborate, and share our work openly.
 :::
 
-## So... Is reproducible science even harder?
+::: fragment
 
-```{r, fig.align='center'}
+```{r, fig.align='center', fig.height=2.5}
 x <- runif(1e2, 0, 10)
 df <- data.frame(x = x, y = 2^x)
 ggplot(data = df, aes(x = x, y = y))+
@@ -139,9 +139,8 @@ ggplot(data = df, aes(x = x, y = y))+
   ylab("knowledge")+xlab("time")
 ```
 
-::: notes
-Learning takes effort. It can feel slow and confusing. But once you’ve learned these tools, your workflow becomes smoother.
 :::
+
 
 ## Outline {background-color="#222b32"}
 
@@ -319,7 +318,9 @@ Imagine we are collecting data (n = 12) to explore the relationship between anxi
                  edu = factor(rep(c("PhD", "BSc", "MSc"), each = 4))))
 ```
 
-> STAI-T consists of 20 items, 4-points likert scale
+::: {.callout-warning appearance="minimal"}
+STAI-T consists of 20 items, 4-points likert scale
+:::
 
 ## `datadictionary`
 
@@ -446,8 +447,9 @@ There are several excellent open-source software options based on R, such as:
 -   Forget a step? Round differently?
 :::
 
-> Stressful, error-prone, and undocumented.
-
+::: {.callout-warning appearance="minimal"}
+Stressful, error-prone, and undocumented.
+:::
 
 ## Why scripting?
 
@@ -468,7 +470,9 @@ ggplot(data, aes(x = condition, y = score)) +
   geom_boxplot()
 ```
 
-> One line change, rerun, and everything updates.
+::: {.callout-warning appearance="minimal"}
+One line change, rerun, and everything updates.
+:::
 
 ::: notes
 You go into your code, change one line: filter(age \>= 18), and rerun everything. The tables update, the figures update, the results update, and you’re done. No mistakes, no stress, and your analysis is documented.
@@ -584,8 +588,14 @@ We have a dataset (`mtcars`) and we want to calculate the mean, median, standard
 ```{r}
 #| echo: true
 head(mtcars, n = 3) # display first 3 rows
+```
+
+::: fragment
+```{r}
+#| echo: true
 str(mtcars) # show structure
 ```
+:::
 
 ## Imperative programming
 
@@ -806,7 +816,7 @@ This gives you a matrix with rows as variables and columns as statistics.
 
 ## Test your functions - `fuzzr` :package:
 
-When you write your own functions, it’s smart to test them. In R, we can use `fuzzr` to do **property-based testing**.
+When you write your own functions, you must test them. In R, we can use `fuzzr` to do **property-based testing**.
 
 ::::: columns
 ::: {.column width="50%"}
@@ -1041,15 +1051,6 @@ To make this even "easier", you can use the `rrtools` package to create what’s
 :::
 :::::
 
-## Research compendium `rrtools` :package:
-
-<br/>
-
-::: nonincremental
--   Organize its files according to the prevailing conventions.
--   Maintain a clear separation of data (original data is untouched!), method, and output.
--   Specify the computational environment that was used for the original analysis
-:::
 
 ## 
 
@@ -1506,7 +1507,7 @@ You can also do most of this from RStudio's Git pane.
 
 ## Branching & merging :seedling:
 
-By default, you work on the **`main`** branch. A new branch is an **independent copy** of your project where you can experiment safely — without touching the working version.
+By default, you work on the **`main`** branch. A new branch is an **independent copy** of your project where you can experiment safely/without touching the working version.
 
 ::: nonincremental
 -   Try out new features without breaking `main`
@@ -1591,7 +1592,7 @@ You don't have to use the terminal, RStudio has a built-in Git panel, you can:
 
 <br/>
 
-> Start small. Use Git for one script. Then grow your skills from there.
+
 
 ::: notes
 I won’t lie: Git can be confusing at first. The terminology (commits, branches, merges, remotes) can feel overwhelming. But you don’t have to learn everything at once. Start simple: Use RStudio’s Git pane to commit and push; Learn how to clone, pull, and push Then explore branches and pull requests
@@ -1610,7 +1611,9 @@ If Git and GitHub feel too technical, or if your collaborators are less technica
 -   Track changes
 :::
 
-> You can also connect OSF to GitHub.
+::: {.callout-warning appearance="minimal"}
+You can also connect OSF to GitHub.
+:::
 
 ## Integrated workflow :hammer_and_wrench:
 
