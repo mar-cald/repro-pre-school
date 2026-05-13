@@ -69,15 +69,16 @@ summary {
 }
 
 /* 3. Dark Section Slides (Uses your website's exact slate color) */
-.reveal.has-dark-background {
-  background-color: $brand-slate !important;
-  
-  h1, h2, h3, h4, h5, h6, p, li, blockquote, td, th {
-    color: #ffffff !important;
-  }
-  
-  table th, table td {
-    border-bottom-color: rgba(255, 255, 255, 0.2);
-  }
+.reveal .dark-slide {
+  background-color: $brand-slate;
+  color: white;
+}
+
+.reveal .dark-slide h1,
+.reveal .dark-slide h2,
+.reveal .dark-slide h3,
+.reveal .dark-slide p,
+.reveal .dark-slide li {
+  color: white;
 }
 

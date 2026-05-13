@@ -1,10 +1,12 @@
 ---
-title: Reproducible Science  
+title: Workshop - Reproducible Science  
+subtitle: Methodological School - 3 R’s of Trustworthy Science
 author: Margherita Calderan  
+date: today
 format:  
   html:  
-    csl: files/apa.cv.csl  
     width: 1200
+    theme: sandstone
 date-format: long  
 final-slide: true  
 from: markdown+emoji  
@@ -12,7 +14,7 @@ incremental: true
 engine: knitr  
 ---
 
-Slides:
+Here the slides:
 
 -   [HTML](slide/repro-preschool.html)
 
@@ -20,4 +22,4 @@ Slides:
 
 ------------------------------------------------------------------------
 
-Quarto: [output](slide/example-quarto.html)
+Example of quarto: [output](slide/example-quarto.html)
