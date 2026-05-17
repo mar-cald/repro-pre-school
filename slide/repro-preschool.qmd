@@ -122,16 +122,6 @@ It’s a lot. It’s easy to feel overwhelmed. And in that chaos, good practices
 :::
 :::::
 
-::: fragment
-```{r, fig.align='center', fig.height=2.5}
-x <- runif(1e2, 0, 10)
-df <- data.frame(x = x, y = 2^x)
-ggplot(data = df, aes(x = x, y = y))+
-  geom_smooth(color = my_cols[2], size =2)+
-  theme_clean(base_size = 20)+
-  ylab("knowledge")+xlab("time")
-```
-:::
 
 ## Outline {background-color="#222b32"}
 
@@ -1574,8 +1564,6 @@ You don't have to use the terminal, RStudio has a built-in Git panel, you can:
 
 ::: nonincremental
 -   [Happy Git and GitHub for the useR](https://happygitwithr.com)
--   GitHub Education: <https://education.github.com>
--   Try GitHub Desktop (GUI client)
 :::
 
 <br/>
