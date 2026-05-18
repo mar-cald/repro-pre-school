@@ -173,7 +173,7 @@ Details about writing headings with markdown in APA style are [here](https://wjs
 
 At the top of the apaquarto document, there is a lot of metadata (e.g., title, authors, affiliations, abstract, and so forth) written in YAML. Although the various options apaquarto are all documented, keeping track of them all can be difficult. Generating the initial YAML metadata can be easier if one begins with the the [apa7maker](https://wjschne.github.io/apa7maker/) web app.
 
-## Citations
+## Citations...
 
 See [here](https://quarto.org/docs/authoring/footnotes-and-citations.html) for instructions on setting up citations and references. A parenthetical citation requires square brackets [@CameronTrivedi2013]. This reference was in my bibliography file. An in-text citation is done like so:
 
